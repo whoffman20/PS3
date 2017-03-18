@@ -15,9 +15,28 @@ public class Book {
 	private double price;
 	private Date publish_date;
 	private String description;
+	private double Cost;
+
+	
+	public double getCost() {
+		return Cost;
+	}
+
+	public Book(String BookInstance){
+		this.id=BookInstance;
+	}
+	public void setCost(double cost) {
+		Cost = cost;
+	}
 
 	public Book() {
 
+	}
+	
+	public Book(String id, String title) {
+		super();
+		this.id = id;
+		this.title = title;
 	}
 
 	public Book(String id, String author, String title, String genre, double price, Date publish_date, String description)

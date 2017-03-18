@@ -34,8 +34,45 @@ public class Catalog {
 	}
 	
 
+	public static Book GetBook(Catalog cat, String Bookid) throws BookException{
+		
+		for (int bookno=0; bookno<cat.getBooks().size(); bookno+=1){
+		
+			if (cat.getBooks().get(bookno).getId()==Bookid){
+			
+				return cat.getBooks().get(bookno);
+			}
+		}
+		throw new BookException();
+	}
 	
-	
+	public static Catalog AddBook(int id, Book book) throws BookException{
+		Catalog cat = ReadXMLFile();
+		
+		if(id==cat.getId()){
+			
+			for (int bookno=0; bookno<cat.getBooks().size(); bookno+=1) {
+			
+				if (book.getId().equals(cat.getBooks().get(bookno).getId())) {
+				
+					System.out.println("Book already exists");
+					
+					throw new BookException(book);
+				}
+			return cat;	
+
+		}
+
+		cat.getBooks().add(book);
+
+	}
+		return cat;
+	}
+
+
+	private static Catalog ReadXMLFile() {
+		return null;
+	}
 
 
 	
